@@ -65,7 +65,13 @@ export default function OrderDetails() {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: `Yes, ${status === "Packed" ? "Packed" : status === 'Completed' ? 'complete' : 'confirm'} it!`,
-      cancelButtonText: 'No, keep it pending'
+      cancelButtonText: 'No, keep it pending',
+      customClass: {
+        container: "fixed inset-0 flex justify-center items-center",
+        popup: "p-4 rounded-lg bg-white",
+        confirmButton: "bg-red-500 text-white px-4 py-2 rounded m-2",
+        cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2 m-2",
+      },
     });
 
     if (result.isConfirmed) {
