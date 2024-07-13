@@ -8,7 +8,7 @@ import platinum from "../components/assets/img/PLATINUM.png";
 import Gold from "../components/assets/img/GOLD.png";
 import { clearCoin, setDateForCoin } from "../Api/coin";
 import withReactContent from "sweetalert2-react-content";
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 
 export default function UserDetails() {
   const [user, setUser] = useState([]);
