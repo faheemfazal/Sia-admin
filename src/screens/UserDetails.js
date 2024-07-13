@@ -7,6 +7,7 @@ import Silver from '../components/assets/img/SILVER.png';
 import platinum from '../components/assets/img/PLATINUM.png';
 import Gold from '../components/assets/img/GOLD.png';
 import { clearCoin, setDateForCoin } from "../Api/coin";
+import withReactContent from 'sweetalert2-react-content';
 
 export default function UserDetails() {
   const [user, setUser] = useState([]);
@@ -15,6 +16,7 @@ export default function UserDetails() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [coinValue, setCoinValue] = useState("");
   const [date, setDate] = useState("");
+  const MySwal = withReactContent(Swal);
 
   useEffect(() => {
     getUser().then((res) => {
@@ -26,7 +28,7 @@ export default function UserDetails() {
 
   const handleBlock = async (userId) => {
     try {
-      const result = await Swal.fire({
+      const result = await MySwal.fire({
         title: 'Are you sure?',
         text: 'This will block the user. Do you want to proceed?',
         icon: 'warning',
@@ -34,8 +36,12 @@ export default function UserDetails() {
         confirmButtonText: 'Yes, block it!',
         cancelButtonText: 'No, keep it',
         customClass: {
-          container: 'w-full max-w-[90%] mx-auto',
-          popup: 'p-4 rounded-lg',
+          container: 'flex justify-center items-center h-full',
+          popup: 'w-full max-w-xs p-4 rounded-lg',
+          title: 'text-lg',
+          content: 'text-sm',
+          confirmButton: 'bg-red-500 text-white px-4 py-2 rounded',
+          cancelButton: 'bg-gray-500 text-white px-4 py-2 rounded ml-2',
         },
       });
 
@@ -182,78 +188,82 @@ export default function UserDetails() {
       </div>
 
       <Modal
-        title="Coin & Pay"
-        visible={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <div>
-          <h2>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
-          <div className="container mx-auto py-10">
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-                <thead className="bg-[#81c408] text-white">
-                  <tr>
-                    <th className="py-3 px-4 uppercase font-semibold text-sm">Coin</th>
-                    <th className="py-3 px-4 uppercase font-semibold text-sm">Coins in Number</th>
-                    <th className="py-3 px-4 uppercase font-semibold text-sm">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="text-gray-700">
-                  <tr>
-                    <td className="py-3 px-4 text-center">
-                      <img src={platinum} alt="Platinum Coin" className="w-12 h-12 mx-auto" />
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <div className="text-center">
-                        <p className="font-bold text-lg">{selectedUser?.platinum}</p>
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('platinum')}>Clear</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 text-center">
-                      <img src={Silver} alt="Silver Coin" className="w-12 h-12 mx-auto" />
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <div className="text-center">
-                        <p className="font-bold text-lg">{selectedUser?.silver}</p>
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('silver')}>Clear</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 text-center">
-                      <img src={Gold} alt="Gold Coin" className="w-12 h-12 mx-auto" />
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <div className="text-center">
-                        <p className="font-bold text-lg">{selectedUser?.gold}</p>
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('gold')}>Clear</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-4">
-              <label className="block font-semibold text-lg mb-2">Date for Coin:</label>
-              <Input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className="w-full border-2 border-gray-300 rounded p-2"
-              />
-            </div>
-          </div>
-        </div>
-      </Modal>
+  title="Coin & Pay"
+  visible={isModalOpen}
+  onOk={handleOk}
+  onCancel={handleCancel}
+  centered
+  width="90%"
+  bodyStyle={{ padding: '16px' }}
+  className="rounded-lg"
+>
+  <div>
+    <h2>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
+    <div className="container mx-auto py-4">
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead className="bg-[#81c408] text-white">
+            <tr>
+              <th className="py-3 px-4 uppercase font-semibold text-sm">Coin</th>
+              <th className="py-3 px-4 uppercase font-semibold text-sm">Coins in Number</th>
+              <th className="py-3 px-4 uppercase font-semibold text-sm">Action</th>
+            </tr>
+          </thead>
+          <tbody className="text-gray-700">
+            <tr>
+              <td className="py-3 px-4 text-center">
+                <img src={platinum} alt="Platinum Coin" className="w-12 h-12 mx-auto" />
+              </td>
+              <td className="py-3 px-4 text-center">
+                <div className="text-center">
+                  <p className="font-bold text-lg">{selectedUser?.platinum}</p>
+                </div>
+              </td>
+              <td className="py-3 px-4 text-center">
+                <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('platinum')}>Clear</button>
+              </td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4 text-center">
+                <img src={Silver} alt="Silver Coin" className="w-12 h-12 mx-auto" />
+              </td>
+              <td className="py-3 px-4 text-center">
+                <div className="text-center">
+                  <p className="font-bold text-lg">{selectedUser?.silver}</p>
+                </div>
+              </td>
+              <td className="py-3 px-4 text-center">
+                <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('silver')}>Clear</button>
+              </td>
+            </tr>
+            <tr>
+              <td className="py-3 px-4 text-center">
+                <img src={Gold} alt="Gold Coin" className="w-12 h-12 mx-auto" />
+              </td>
+              <td className="py-3 px-4 text-center">
+                <div className="text-center">
+                  <p className="font-bold text-lg">{selectedUser?.gold}</p>
+                </div>
+              </td>
+              <td className="py-3 px-4 text-center">
+                <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('gold')}>Clear</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div className="mt-4">
+        <label className="block font-semibold text-lg mb-2">Date for Coin:</label>
+        <Input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          className="w-full border-2 border-gray-300 rounded p-2"
+        />
+      </div>
+    </div>
+  </div>
+</Modal>
     </>
   );
 }
