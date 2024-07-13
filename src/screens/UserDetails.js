@@ -201,7 +201,6 @@ export default function UserDetails() {
         </div>
       </div>
       <Modal
-  title="Coin & Pay"
   visible={isModalOpen}
   centered
   width="90%"
@@ -219,34 +218,10 @@ export default function UserDetails() {
     left: "50%",
     transform: "translate(-50%, -50%)",
   }}
-  okButtonProps={{
-    style: {
-      backgroundColor: "green",
-      color: "white",
-      padding: "10px 20px",
-      margin: "10px",
-    },
-  }}
-  cancelButtonProps={{
-    style: {
-      backgroundColor: "red",
-      color: "white",
-      padding: "10px 20px",
-      margin: "10px",
-    },
-  }}
   maskStyle={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
-  footer={[
-    <Button key="cancel" onClick={handleCancel} style={{ marginRight: 10 }}>
-      Cancel
-    </Button>,
-    <Button key="ok" type="primary" onClick={handleOk}>
-      OK
-    </Button>,
-  ]}
 >
-  <div>
-    <h2 style={{ marginBottom: "20px" }}>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
+  <div style={{ width: "100%" }}>
+    <h2 style={{ marginBottom: "20px", textAlign: "center" }}>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
         <thead className="bg-[#81c408] text-white">
@@ -267,7 +242,11 @@ export default function UserDetails() {
               </div>
             </td>
             <td className="py-3 px-4 text-center">
-              <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear("platinum")}>
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleClear("platinum")}
+              >
                 Clear
               </button>
             </td>
@@ -282,7 +261,11 @@ export default function UserDetails() {
               </div>
             </td>
             <td className="py-3 px-4 text-center">
-              <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear("silver")}>
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleClear("silver")}
+              >
                 Clear
               </button>
             </td>
@@ -297,7 +280,11 @@ export default function UserDetails() {
               </div>
             </td>
             <td className="py-3 px-4 text-center">
-              <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear("gold")}>
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleClear("gold")}
+              >
                 Clear
               </button>
             </td>
@@ -309,7 +296,7 @@ export default function UserDetails() {
       <label className="block font-semibold text-lg mb-2">
         Date for Coin:
       </label>
-      <Input
+      <input
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
@@ -317,8 +304,37 @@ export default function UserDetails() {
       />
     </div>
   </div>
+  <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+    <button
+      style={{
+        backgroundColor: "green",
+        color: "white",
+        padding: "10px 20px",
+        margin: "10px",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+      }}
+      onClick={handleOk}
+    >
+      OK
+    </button>
+    <button
+      style={{
+        backgroundColor: "red",
+        color: "white",
+        padding: "10px 20px",
+        margin: "10px",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+      }}
+      onClick={handleCancel}
+    >
+      Cancel
+    </button>
+  </div>
 </Modal>
-
 
 
 
