@@ -200,12 +200,9 @@ export default function UserDetails() {
           </div>
         </div>
       </div>
-
       <Modal
   title="Coin & Pay"
   visible={isModalOpen}
-  onOk={handleOk}
-  onCancel={handleCancel}
   centered
   width="90%"
   bodyStyle={{
@@ -239,6 +236,14 @@ export default function UserDetails() {
     },
   }}
   maskStyle={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+  footer={[
+    <Button key="cancel" onClick={handleCancel} style={{ marginRight: 10 }}>
+      Cancel
+    </Button>,
+    <Button key="ok" type="primary" onClick={handleOk}>
+      OK
+    </Button>,
+  ]}
 >
   <div>
     <h2 style={{ marginBottom: "20px" }}>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
@@ -247,20 +252,14 @@ export default function UserDetails() {
         <thead className="bg-[#81c408] text-white">
           <tr>
             <th className="py-3 px-4 uppercase font-semibold text-sm">Coin</th>
-            <th className="py-3 px-4 uppercase font-semibold text-sm">
-              Coins in Number
-            </th>
+            <th className="py-3 px-4 uppercase font-semibold text-sm">Coins in Number</th>
             <th className="py-3 px-4 uppercase font-semibold text-sm">Action</th>
           </tr>
         </thead>
         <tbody className="text-gray-700">
           <tr>
             <td className="py-3 px-4 text-center">
-              <img
-                src={platinum}
-                alt="Platinum Coin"
-                className="w-12 h-12 mx-auto"
-              />
+              <img src={platinum} alt="Platinum Coin" className="w-12 h-12 mx-auto" />
             </td>
             <td className="py-3 px-4 text-center">
               <div className="text-center">
@@ -268,21 +267,14 @@ export default function UserDetails() {
               </div>
             </td>
             <td className="py-3 px-4 text-center">
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded"
-                onClick={() => handleClear("platinum")}
-              >
+              <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear("platinum")}>
                 Clear
               </button>
             </td>
           </tr>
           <tr>
             <td className="py-3 px-4 text-center">
-              <img
-                src={Silver}
-                alt="Silver Coin"
-                className="w-12 h-12 mx-auto"
-              />
+              <img src={Silver} alt="Silver Coin" className="w-12 h-12 mx-auto" />
             </td>
             <td className="py-3 px-4 text-center">
               <div className="text-center">
@@ -290,21 +282,14 @@ export default function UserDetails() {
               </div>
             </td>
             <td className="py-3 px-4 text-center">
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded"
-                onClick={() => handleClear("silver")}
-              >
+              <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear("silver")}>
                 Clear
               </button>
             </td>
           </tr>
           <tr>
             <td className="py-3 px-4 text-center">
-              <img
-                src={Gold}
-                alt="Gold Coin"
-                className="w-12 h-12 mx-auto"
-              />
+              <img src={Gold} alt="Gold Coin" className="w-12 h-12 mx-auto" />
             </td>
             <td className="py-3 px-4 text-center">
               <div className="text-center">
@@ -312,10 +297,7 @@ export default function UserDetails() {
               </div>
             </td>
             <td className="py-3 px-4 text-center">
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded"
-                onClick={() => handleClear("gold")}
-              >
+              <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear("gold")}>
                 Clear
               </button>
             </td>
@@ -336,6 +318,7 @@ export default function UserDetails() {
     </div>
   </div>
 </Modal>
+
 
 
 
