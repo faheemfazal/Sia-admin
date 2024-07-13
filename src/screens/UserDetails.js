@@ -200,7 +200,7 @@ export default function UserDetails() {
           </div>
         </div>
       </div>
-      <Modal
+ {isModalOpen  &&     <Modal
   visible={isModalOpen}
   centered
   width="90%"
@@ -337,7 +337,7 @@ export default function UserDetails() {
   </button>
 </div>
 </Modal>
-
+}
 
 
     </>
