@@ -232,6 +232,7 @@ export default function UserDetails() {
       margin: "0 5px",
     },
   }}
+  maskStyle={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }} // Adjust the background mask color
 >
   <div>
     <h2>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
@@ -331,6 +332,7 @@ export default function UserDetails() {
     </div>
   </div>
 </Modal>
+
 
     </>
   );
