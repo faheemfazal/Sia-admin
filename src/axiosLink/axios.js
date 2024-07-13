@@ -20,7 +20,8 @@ import axios from "axios";
 
 // Create an instance of axios
 const axiosAdmin = axios.create({
-  baseURL: "https://sia-backend-eight.vercel.app/admin/",
+  // baseURL: "https://sia-backend-eight.vercel.app/admin/",
+  baseURL: "https://sia-backend-azjk.onrender.com/admin",
   headers: {
     "Content-Type": "application/json",
   },
