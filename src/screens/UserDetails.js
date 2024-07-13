@@ -304,36 +304,38 @@ export default function UserDetails() {
       />
     </div>
   </div>
-  <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
-    <button
-      style={{
-        backgroundColor: "green",
-        color: "white",
-        padding: "10px 20px",
-        margin: "10px",
-        border: "none",
-        borderRadius: "5px",
-        cursor: "pointer",
-      }}
-      onClick={handleOk}
-    >
-      OK
-    </button>
-    <button
-      style={{
-        backgroundColor: "red",
-        color: "white",
-        padding: "10px 20px",
-        margin: "10px",
-        border: "none",
-        borderRadius: "5px",
-        cursor: "pointer",
-      }}
-      onClick={handleCancel}
-    >
-      Cancel
-    </button>
-  </div>
+  <div style={{ textAlign: "center", marginTop: "20px" }}>
+  <button
+    style={{
+      backgroundColor: "green",
+      color: "white",
+      padding: "10px 20px",
+      margin: "10px",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+      display: "inline-block",
+    }}
+    onClick={handleOk}
+  >
+    OK
+  </button>
+  <button
+    style={{
+      backgroundColor: "red",
+      color: "white",
+      padding: "10px 20px",
+      margin: "10px",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+      display: "inline-block",
+    }}
+    onClick={handleCancel}
+  >
+    Cancel
+  </button>
+</div>
 </Modal>
 
 
