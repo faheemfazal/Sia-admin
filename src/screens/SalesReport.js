@@ -17,7 +17,7 @@ import { useEffect, useState, useRef } from "react"
 
 
 // import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+// import jsPDF from "jspdf";
 import Navbar from "../components/Navbar";
 import { Sales } from "../Api/DashBoad";
 
@@ -135,7 +135,7 @@ export default function SalesReport() {
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y divide-gray-200">
+                                    {/* <tbody className="divide-y divide-gray-200">
                                         {sales.length >= 0 &&
                                             sales.map((sales, index) => {
                                                 return (
@@ -171,7 +171,7 @@ export default function SalesReport() {
                                                     </tr>
                                                 );
                                             })}
-                                    </tbody>
+                                    </tbody> */}
                                 </table>
                             </div>
                             {/* <div className='max-w-[1600px] bg-gray-100 flex justify-center mt-3'>
