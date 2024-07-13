@@ -1,13 +1,13 @@
 import { UnblockUser, blockUser, getUser } from "../Api/user";
 import Navbar from "../components/Navbar";
-import { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
-import { message, Modal, Input } from 'antd';
-import Silver from '../components/assets/img/SILVER.png';
-import platinum from '../components/assets/img/PLATINUM.png';
-import Gold from '../components/assets/img/GOLD.png';
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { message, Modal, Input } from "antd";
+import Silver from "../components/assets/img/SILVER.png";
+import platinum from "../components/assets/img/PLATINUM.png";
+import Gold from "../components/assets/img/GOLD.png";
 import { clearCoin, setDateForCoin } from "../Api/coin";
-import withReactContent from 'sweetalert2-react-content';
+import withReactContent from "sweetalert2-react-content";
 
 export default function UserDetails() {
   const [user, setUser] = useState([]);
@@ -29,19 +29,19 @@ export default function UserDetails() {
   const handleBlock = async (userId) => {
     try {
       const result = await MySwal.fire({
-        title: 'Are you sure?',
-        text: 'This will block the user. Do you want to proceed?',
-        icon: 'warning',
+        title: "Are you sure?",
+        text: "This will block the user. Do you want to proceed?",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes, block it!',
-        cancelButtonText: 'No, keep it',
+        confirmButtonText: "Yes, block it!",
+        cancelButtonText: "No, keep it",
         customClass: {
-          container: 'flex justify-center items-center h-full',
-          popup: 'w-full max-w-xs p-4 rounded-lg',
-          title: 'text-lg',
-          content: 'text-sm',
-          confirmButton: 'bg-red-500 text-white px-4 py-2 rounded',
-          cancelButton: 'bg-gray-500 text-white px-4 py-2 rounded ml-2',
+          container: "flex justify-center items-center h-full",
+          popup: "w-full max-w-xs p-4 rounded-lg",
+          title: "text-lg",
+          content: "text-sm",
+          confirmButton: "bg-red-500 text-white px-4 py-2 rounded",
+          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2",
         },
       });
 
@@ -49,7 +49,7 @@ export default function UserDetails() {
         const res = await blockUser(userId);
         if (res.status === 200) {
           setLoad(!load);
-          message.success('User blocked successfully');
+          message.success("User blocked successfully");
         }
       }
     } catch (e) {
@@ -60,15 +60,15 @@ export default function UserDetails() {
   const handleClear = async (coin) => {
     try {
       const result = await Swal.fire({
-        title: 'Are you sure?',
-        text: 'This will clear the coin. Do you want to proceed?',
-        icon: 'warning',
+        title: "Are you sure?",
+        text: "This will clear the coin. Do you want to proceed?",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes, clear it!',
-        cancelButtonText: 'No, keep it',
+        confirmButtonText: "Yes, clear it!",
+        cancelButtonText: "No, keep it",
         customClass: {
-          container: 'w-full max-w-[90%] mx-auto',
-          popup: 'p-4 rounded-lg',
+          container: "w-full max-w-[90%] mx-auto",
+          popup: "p-4 rounded-lg",
         },
       });
 
@@ -76,7 +76,7 @@ export default function UserDetails() {
         const res = await clearCoin(coin, selectedUser._id);
         if (res.status === 200) {
           setSelectedUser(res.data.user);
-          message.success('Coin cleared successfully');
+          message.success("Coin cleared successfully");
         }
       }
     } catch (e) {
@@ -87,15 +87,15 @@ export default function UserDetails() {
   const handleUnBlock = async (userId) => {
     try {
       const result = await Swal.fire({
-        title: 'Are you sure?',
-        text: 'This will unblock the user. Do you want to proceed?',
-        icon: 'warning',
+        title: "Are you sure?",
+        text: "This will unblock the user. Do you want to proceed?",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes, unblock it!',
-        cancelButtonText: 'No, keep it',
+        confirmButtonText: "Yes, unblock it!",
+        cancelButtonText: "No, keep it",
         customClass: {
-          container: 'w-full max-w-[90%] mx-auto',
-          popup: 'p-4 rounded-lg',
+          container: "w-full max-w-[90%] mx-auto",
+          popup: "p-4 rounded-lg",
         },
       });
 
@@ -145,15 +145,24 @@ export default function UserDetails() {
               <thead>
                 <tr>
                   <th className="px-4 py-2 border-b text-center">Name</th>
-                  <th className="px-4 py-2 border-b text-center">Number or Email</th>
+                  <th className="px-4 py-2 border-b text-center">
+                    Number or Email
+                  </th>
                   <th className="px-4 py-2 border-b text-center"></th>
                 </tr>
               </thead>
               <tbody>
                 {user.map((row, index) => (
-                  <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
-                    <td className="px-4 py-2 border-b text-center">{row.name}</td>
-                    <td className="px-4 py-2 border-b text-center">{row.phoneNumber ? row.phoneNumber : row.email}</td>
+                  <tr
+                    key={index}
+                    className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
+                  >
+                    <td className="px-4 py-2 border-b text-center">
+                      {row.name}
+                    </td>
+                    <td className="px-4 py-2 border-b text-center">
+                      {row.phoneNumber ? row.phoneNumber : row.email}
+                    </td>
                     <td className="px-4 py-2 border-b text-center">
                       <button
                         className="bg-orange-500 text-white px-4 py-2 rounded text-center whitespace-nowrap"
@@ -188,82 +197,123 @@ export default function UserDetails() {
       </div>
 
       <Modal
-  title="Coin & Pay"
-  visible={isModalOpen}
-  onOk={handleOk}
-  onCancel={handleCancel}
-  centered
-  width="90%"
-  bodyStyle={{ padding: '16px' }}
-  className="rounded-lg"
->
-  <div>
-    <h2>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
-    <div className="container mx-auto py-4">
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-          <thead className="bg-[#81c408] text-white">
-            <tr>
-              <th className="py-3 px-4 uppercase font-semibold text-sm">Coin</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm">Coins in Number</th>
-              <th className="py-3 px-4 uppercase font-semibold text-sm">Action</th>
-            </tr>
-          </thead>
-          <tbody className="text-gray-700">
-            <tr>
-              <td className="py-3 px-4 text-center">
-                <img src={platinum} alt="Platinum Coin" className="w-12 h-12 mx-auto" />
-              </td>
-              <td className="py-3 px-4 text-center">
-                <div className="text-center">
-                  <p className="font-bold text-lg">{selectedUser?.platinum}</p>
-                </div>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('platinum')}>Clear</button>
-              </td>
-            </tr>
-            <tr>
-              <td className="py-3 px-4 text-center">
-                <img src={Silver} alt="Silver Coin" className="w-12 h-12 mx-auto" />
-              </td>
-              <td className="py-3 px-4 text-center">
-                <div className="text-center">
-                  <p className="font-bold text-lg">{selectedUser?.silver}</p>
-                </div>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('silver')}>Clear</button>
-              </td>
-            </tr>
-            <tr>
-              <td className="py-3 px-4 text-center">
-                <img src={Gold} alt="Gold Coin" className="w-12 h-12 mx-auto" />
-              </td>
-              <td className="py-3 px-4 text-center">
-                <div className="text-center">
-                  <p className="font-bold text-lg">{selectedUser?.gold}</p>
-                </div>
-              </td>
-              <td className="py-3 px-4 text-center">
-                <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleClear('gold')}>Clear</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div className="mt-4">
-        <label className="block font-semibold text-lg mb-2">Date for Coin:</label>
-        <Input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="w-full border-2 border-gray-300 rounded p-2"
-        />
-      </div>
-    </div>
-  </div>
-</Modal>
+        title="Coin & Pay"
+        visible={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        centered
+        width="90%"
+        bodyStyle={{ padding: "16px" }}
+        className="rounded-lg"
+      >
+        <div>
+          <h2>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
+          <div className="container mx-auto py-4">
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                <thead className="bg-[#81c408] text-white">
+                  <tr>
+                    <th className="py-3 px-4 uppercase font-semibold text-sm">
+                      Coin
+                    </th>
+                    <th className="py-3 px-4 uppercase font-semibold text-sm">
+                      Coins in Number
+                    </th>
+                    <th className="py-3 px-4 uppercase font-semibold text-sm">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-700">
+                  <tr>
+                    <td className="py-3 px-4 text-center">
+                      <img
+                        src={platinum}
+                        alt="Platinum Coin"
+                        className="w-12 h-12 mx-auto"
+                      />
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <div className="text-center">
+                        <p className="font-bold text-lg">
+                          {selectedUser?.platinum}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <button
+                        className="bg-red-500 text-white px-4 py-2 rounded"
+                        onClick={() => handleClear("platinum")}
+                      >
+                        Clear
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-center">
+                      <img
+                        src={Silver}
+                        alt="Silver Coin"
+                        className="w-12 h-12 mx-auto"
+                      />
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <div className="text-center">
+                        <p className="font-bold text-lg">
+                          {selectedUser?.silver}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <button
+                        className="bg-red-500 text-white px-4 py-2 rounded"
+                        onClick={() => handleClear("silver")}
+                      >
+                        Clear
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-center">
+                      <img
+                        src={Gold}
+                        alt="Gold Coin"
+                        className="w-12 h-12 mx-auto"
+                      />
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <div className="text-center">
+                        <p className="font-bold text-lg">
+                          {selectedUser?.gold}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <button
+                        className="bg-red-500 text-white px-4 py-2 rounded"
+                        onClick={() => handleClear("gold")}
+                      >
+                        Clear
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-4">
+              <label className="block font-semibold text-lg mb-2">
+                Date for Coin:
+              </label>
+              <Input
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="w-full border-2 border-gray-300 rounded p-2"
+              />
+            </div>
+          </div>
+        </div>
+      </Modal>
     </>
   );
 }
