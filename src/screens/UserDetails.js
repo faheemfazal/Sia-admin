@@ -59,7 +59,7 @@ export default function UserDetails() {
 
   const handleClear = async (coin) => {
     try {
-      const result = await Swal.fire({
+      const result = await MySwal.fire({
         title: "Are you sure?",
         text: "This will clear the coin. Do you want to proceed?",
         icon: "warning",
@@ -67,8 +67,12 @@ export default function UserDetails() {
         confirmButtonText: "Yes, clear it!",
         cancelButtonText: "No, keep it",
         customClass: {
-          container: "w-full max-w-[90%] mx-auto",
-          popup: "p-4 rounded-lg",
+          container: "flex justify-center items-center h-full",
+          popup: "w-full max-w-xs p-4 rounded-lg",
+          title: "text-lg",
+          content: "text-sm",
+          confirmButton: "bg-red-500 text-white px-4 py-2 rounded",
+          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2",
         },
       });
 
@@ -86,7 +90,7 @@ export default function UserDetails() {
 
   const handleUnBlock = async (userId) => {
     try {
-      const result = await Swal.fire({
+      const result = await MySwal.fire({
         title: "Are you sure?",
         text: "This will unblock the user. Do you want to proceed?",
         icon: "warning",
@@ -94,8 +98,12 @@ export default function UserDetails() {
         confirmButtonText: "Yes, unblock it!",
         cancelButtonText: "No, keep it",
         customClass: {
-          container: "w-full max-w-[90%] mx-auto",
-          popup: "p-4 rounded-lg",
+          container: "flex justify-center items-center h-full",
+          popup: "w-full max-w-xs p-4 rounded-lg",
+          title: "text-lg",
+          content: "text-sm",
+          confirmButton: "bg-red-500 text-white px-4 py-2 rounded",
+          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2",
         },
       });
 
