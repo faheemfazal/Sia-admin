@@ -37,11 +37,11 @@ export default function UserDetails() {
         cancelButtonText: "No, keep it",
         customClass: {
           container: "fixed inset-0 flex justify-center items-center",
-          popup: "w-full max-w-xs p-4 rounded-lg",
+          popup: "w-full max-w-xs p-4 rounded-lg bg-white",
           title: "text-lg",
           content: "text-sm",
-          confirmButton: "bg-red-500 text-white px-4 py-2 rounded",
-          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2",
+          confirmButton: "bg-red-500 text-white px-4 py-2 rounded m-2",
+          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2 m-2",
         },
       });
 
@@ -68,7 +68,9 @@ export default function UserDetails() {
         cancelButtonText: "No, keep it",
         customClass: {
           container: "fixed inset-0 flex justify-center items-center",
-          popup: "p-4 rounded-lg",
+          popup: "p-4 rounded-lg bg-white",
+          confirmButton: "bg-red-500 text-white px-4 py-2 rounded m-2",
+          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2 m-2",
         },
       });
 
@@ -95,7 +97,9 @@ export default function UserDetails() {
         cancelButtonText: "No, keep it",
         customClass: {
           container: "fixed inset-0 flex justify-center items-center",
-          popup: "p-4 rounded-lg",
+          popup: "p-4 rounded-lg bg-white",
+          confirmButton: "bg-green-500 text-white px-4 py-2 rounded m-2",
+          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2 m-2",
         },
       });
 
@@ -203,9 +207,14 @@ export default function UserDetails() {
         onCancel={handleCancel}
         centered
         width="90%"
-        bodyStyle={{ padding: "16px" }}
+        bodyStyle={{ padding: "16px", backgroundColor: "white" }}
         className="rounded-lg"
-        style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
       >
         <div>
           <h2>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
