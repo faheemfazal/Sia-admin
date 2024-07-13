@@ -16,7 +16,7 @@
 import { useEffect, useState, useRef } from "react"
 
 
-import html2canvas from "html2canvas";
+// import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import Navbar from "../components/Navbar";
 import { Sales } from "../Api/DashBoad";
@@ -51,29 +51,29 @@ export default function SalesReport() {
     }, [page])
 
 
-    const downloadPdf = () => {
-        const input = pdfRef.current;
-        html2canvas(input).then((canvas) => {
-            const imagedata = canvas.toDataURL("img/png");
-            const pdf = new jsPDF("p", "mm", "a4", true);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = pdf.internal.pageSize.getHeight();
-            const imgWidth = canvas.width;
-            const imgHeight = canvas.height;
-            const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-            const imgX = (pdfWidth - imgWidth * ratio) / 2;
-            const imgY = 30;
-            pdf.addImage(
-                imagedata,
-                "PNG",
-                imgX,
-                imgY,
-                imgWidth * ratio,
-                imgHeight * ratio
-            );
-            pdf.save("invoice.pdf");
-        });
-    };
+    // const downloadPdf = () => {
+    //     const input = pdfRef.current;
+    //     html2canvas(input).then((canvas) => {
+    //         const imagedata = canvas.toDataURL("img/png");
+    //         const pdf = new jsPDF("p", "mm", "a4", true);
+    //         const pdfWidth = pdf.internal.pageSize.getWidth();
+    //         const pdfHeight = pdf.internal.pageSize.getHeight();
+    //         const imgWidth = canvas.width;
+    //         const imgHeight = canvas.height;
+    //         const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+    //         const imgX = (pdfWidth - imgWidth * ratio) / 2;
+    //         const imgY = 30;
+    //         pdf.addImage(
+    //             imagedata,
+    //             "PNG",
+    //             imgX,
+    //             imgY,
+    //             imgWidth * ratio,
+    //             imgHeight * ratio
+    //         );
+    //         pdf.save("invoice.pdf");
+    //     });
+    // };
     return (
         <>
 
@@ -96,7 +96,7 @@ export default function SalesReport() {
 
                             <button
                                 className="bg-red-600 hover:bg-green-600 text-white py-1 px-2 rounded  text-lg mt-2 ml-3 "
-                                onClick={downloadPdf}
+                                // onClick={downloadPdf}
                             >
                                 Download Pdf
                             </button>
@@ -174,7 +174,7 @@ export default function SalesReport() {
                                     </tbody>
                                 </table>
                             </div>
-                            <div className='max-w-[1600px] bg-gray-100 flex justify-center mt-3'>
+                            {/* <div className='max-w-[1600px] bg-gray-100 flex justify-center mt-3'>
                                 {totalPages > 0 &&
                                     [...Array(totalPages)].map((val, index) => (
                                         <button
@@ -185,7 +185,7 @@ export default function SalesReport() {
                                             {index + 1}
                                         </button>
                                     ))}
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
