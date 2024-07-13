@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.swal-container {
+    width: 100% !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+  

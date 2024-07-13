@@ -1,6 +1,6 @@
-import { UnblockUser, blockUser, getUser } from "../Api/user"
-import Navbar from "../components/Navbar"
-import { useEffect, useState } from 'react'
+import { UnblockUser, blockUser, getUser } from "../Api/user";
+import Navbar from "../components/Navbar";
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { message, Modal, Input } from 'antd';
 import Silver from '../components/assets/img/SILVER.png';
@@ -21,14 +21,10 @@ export default function UserDetails() {
   useEffect(() => {
     getUser().then((res) => {
       if (res?.status === 200) {
-        console.log(res, '....oooo');
         setUser(res.data);
       }
     });
   }, [load]);
-  useEffect(()=>{
-
-  },[selectedUser])
 
   const handleBlock = async (userId) => {
     try {
@@ -38,13 +34,15 @@ export default function UserDetails() {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes, block it!',
-        cancelButtonText: 'No, keep it'
+        cancelButtonText: 'No, keep it',
+        customClass: {
+          container: 'swal-container',
+        },
       });
 
       if (result.isConfirmed) {
         const res = await blockUser(userId);
         if (res.status === 200) {
-          console.log(res, ';;;;;');
           setLoad(!load);
           message.success('User blocked successfully');
         }
@@ -62,23 +60,23 @@ export default function UserDetails() {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes, clear it!',
-        cancelButtonText: 'No, keep it'
+        cancelButtonText: 'No, keep it',
+        customClass: {
+          container: 'swal-container',
+        },
       });
 
       if (result.isConfirmed) {
-        // Implement the logic to clear the coin here
-        const res = await clearCoin(coin,selectedUser._id)
-        if(res.status==200){
-          console.log('Coin cleared for', selectedUser.name);
-          setSelectedUser(res.data.user)
+        const res = await clearCoin(coin, selectedUser._id);
+        if (res.status === 200) {
+          setSelectedUser(res.data.user);
           message.success('Coin cleared successfully');
-
         }
       }
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   const handleUnBlock = async (userId) => {
     try {
@@ -88,14 +86,15 @@ export default function UserDetails() {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes, unblock it!',
-        cancelButtonText: 'No, keep it'
+        cancelButtonText: 'No, keep it',
+        customClass: {
+          container: 'swal-container',
+        },
       });
 
       if (result.isConfirmed) {
         const res = await UnblockUser(userId);
         if (res.status === 200) {
-          console.log(res, ';;;;;');
-         
           setLoad(!load);
           message.success(res?.message);
         }
@@ -110,15 +109,11 @@ export default function UserDetails() {
     setIsModalOpen(true);
   };
 
-  const handleOk = async() => {
-    console.log(`Coin value for ${selectedUser.name}:`, coinValue);
-    const res = await setDateForCoin(date,selectedUser._id)
-    if(res?.status===200){
-      message.success(res.data.message)
+  const handleOk = async () => {
+    const res = await setDateForCoin(date, selectedUser._id);
+    if (res?.status === 200) {
+      message.success(res.data.message);
     }
-
-    // setIsModalOpen(false);
-    // setCoinValue("");
   };
 
   const handleCancel = () => {
@@ -129,7 +124,6 @@ export default function UserDetails() {
   return (
     <>
       <Navbar />
-
       <div className="container mx-auto p-4">
         <div className="mb-4">
           <h1 className="text-2xl font-semibold mt-2">User Details</h1>
@@ -251,19 +245,15 @@ export default function UserDetails() {
      
           <div className="mt-4">
             <label htmlFor="date" className="block text-sm font-medium text-gray-700">Select Date</label>
-            {/* <input
+            <input
+              name='pickUpDate'
               type="date"
               id="date"
+              min={new Date().toISOString().split("T")[0]}
               value={date}
               onChange={(e) => setDate(e.target.value)}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            /> */}
-            <input name='pickUpDate' class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                    type="date" min={new Date().toISOString().split("T")[0]}
-                                                    id="date"
-                                                    value={date}
-                                                    onChange={(e) => setDate(e.target.value)}
-                                                />
+            />
           </div>
           <div className="mt-4">
             {/* <button
