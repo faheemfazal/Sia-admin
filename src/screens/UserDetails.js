@@ -125,6 +125,8 @@ export default function UserDetails() {
     const res = await setDateForCoin(date, selectedUser._id);
     if (res?.status === 200) {
       message.success(res.data.message);
+    setIsModalOpen(false);
+
     }
   };
 
@@ -294,7 +296,7 @@ export default function UserDetails() {
     </div>
     <div className="mt-4" style={{ width: "100%", maxWidth: "300px" }}>
       <label className="block font-semibold text-lg mb-2">
-        Date for Coin:
+        Date for Coin:<span className="font-normal text-sm">{date}</span>
       </label>
       <input
         type="date"
