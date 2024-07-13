@@ -36,7 +36,7 @@ export default function UserDetails() {
         confirmButtonText: "Yes, block it!",
         cancelButtonText: "No, keep it",
         customClass: {
-          container: "flex justify-center items-center h-full",
+          container: "fixed inset-0 flex justify-center items-center",
           popup: "w-full max-w-xs p-4 rounded-lg",
           title: "text-lg",
           content: "text-sm",
@@ -59,7 +59,7 @@ export default function UserDetails() {
 
   const handleClear = async (coin) => {
     try {
-      const result = await MySwal.fire({
+      const result = await Swal.fire({
         title: "Are you sure?",
         text: "This will clear the coin. Do you want to proceed?",
         icon: "warning",
@@ -67,12 +67,8 @@ export default function UserDetails() {
         confirmButtonText: "Yes, clear it!",
         cancelButtonText: "No, keep it",
         customClass: {
-          container: "flex justify-center items-center h-full",
-          popup: "w-full max-w-xs p-4 rounded-lg",
-          title: "text-lg",
-          content: "text-sm",
-          confirmButton: "bg-red-500 text-white px-4 py-2 rounded",
-          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2",
+          container: "fixed inset-0 flex justify-center items-center",
+          popup: "p-4 rounded-lg",
         },
       });
 
@@ -90,7 +86,7 @@ export default function UserDetails() {
 
   const handleUnBlock = async (userId) => {
     try {
-      const result = await MySwal.fire({
+      const result = await Swal.fire({
         title: "Are you sure?",
         text: "This will unblock the user. Do you want to proceed?",
         icon: "warning",
@@ -98,12 +94,8 @@ export default function UserDetails() {
         confirmButtonText: "Yes, unblock it!",
         cancelButtonText: "No, keep it",
         customClass: {
-          container: "flex justify-center items-center h-full",
-          popup: "w-full max-w-xs p-4 rounded-lg",
-          title: "text-lg",
-          content: "text-sm",
-          confirmButton: "bg-red-500 text-white px-4 py-2 rounded",
-          cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2",
+          container: "fixed inset-0 flex justify-center items-center",
+          popup: "p-4 rounded-lg",
         },
       });
 
@@ -213,6 +205,7 @@ export default function UserDetails() {
         width="90%"
         bodyStyle={{ padding: "16px" }}
         className="rounded-lg"
+        style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
       >
         <div>
           <h2>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
