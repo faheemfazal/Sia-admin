@@ -120,10 +120,10 @@ export default function Navbar() {
           </li> */}
 
           <li>
-     <button  className="flex items-center space-x-2" onClick={handleLogout} >
+     <div  className="flex items-center space-x-2" onClick={handleLogout} >
               <i className="icon icon-share-alt"></i>
               <span className="text">Logout</span>
-            </button>
+            </div>
           </li>
         </ul>
       </div>
@@ -134,22 +134,22 @@ export default function Navbar() {
             className="active p-2 rounded hover:bg-gray-700"
             onClick={() => navigate("/home")}
           >
-            <button className="w-full flex items-center space-x-2">
+            <div className="w-full flex items-center space-x-2">
               <i className="icon icon-home"></i>
               <span>Dashboard</span>
-            </button>
+            </div>
           </li>
           <li
             className="active p-2 rounded hover:bg-gray-700"
             onClick={() => navigate("/users")}
           >
-            <button className="w-full flex items-center space-x-2">
+            <div className="w-full flex items-center space-x-2">
               <i className="icon icon-home"></i>
               <span>Users</span>
-            </button>
+            </div>
           </li>
           <li ref={formsRef} className="submenu p-2 rounded hover:bg-gray-700 relative">
-            <button
+            <div
               onClick={() => toggleSubmenu("forms", formsRef)}
               className="w-full flex items-center justify-between space-x-2"
             >
@@ -158,29 +158,29 @@ export default function Navbar() {
                 <span> Products</span>
               </span>
               <FaAngleDown className="p-1 text-2xl" />
-            </button>
+            </div>
           </li>
           <li ref={categoryRef} className="p-2 rounded hover:bg-gray-700 relative">
-            <button
+            <div
               className="w-full flex items-center space-x-2"
               onClick={() => toggleSubmenu("category", categoryRef)}
             >
               <i className="icon icon-inbox"></i>
               <span>Category</span>
               <FaAngleDown className="p-1 text-2xl" />
-            </button>
+            </div>
           </li>
           <li className="p-2 rounded hover:bg-gray-700">
-            <button className="w-full flex items-center space-x-2" onClick={() => navigate("/orders")}>
+            <div className="w-full flex items-center space-x-2" onClick={() => navigate("/orders")}>
               <i className="icon icon-th"></i>
               <span>Orders</span>
-            </button>
+            </div>
           </li>
           <li className="p-2 rounded hover:bg-gray-700">
-            <button className="w-full flex items-center space-x-2 whitespace-nowrap" onClick={() => navigate("/sales-report")}>
+            <div className="w-full flex items-center space-x-2 whitespace-nowrap" onClick={() => navigate("/sales-report")}>
               <i className="icon icon-fullscreen"></i>
               <span>Sales Report</span>
-            </button>
+            </div>
           </li>
         </ul>
       </div>
@@ -192,14 +192,14 @@ export default function Navbar() {
         >
           <ul>
             <li className="hover:bg-gray-600 p-2 rounded">
-              <button className="w-full" onClick={() => navigate("/viewProduct")}>
+              <div className="w-full" onClick={() => navigate("/viewProduct")}>
                 View Product
-              </button>
+              </div>
             </li>
             <li className="hover:bg-gray-600 p-2 rounded">
-              <button className="w-full" onClick={() => navigate("/addProduct")}>
+              <div className="w-full" onClick={() => navigate("/addProduct")}>
                 Add Product
-              </button>
+              </div>
             </li>
           </ul>
         </div>
@@ -211,14 +211,14 @@ export default function Navbar() {
         >
           <ul>
             <li className="hover:bg-gray-600 p-2 rounded">
-              <button className="w-full" onClick={() => navigate("/viewCategory")}>
+              <div className="w-full" onClick={() => navigate("/viewCategory")}>
                 View Category
-              </button>
+              </div>
             </li>
             <li className="hover:bg-gray-600 p-2 rounded">
-              <button className="w-full" onClick={() => navigate("/addCategory")}>
+              <div className="w-full" onClick={() => navigate("/addCategory")}>
                 Add Category
-              </button>
+              </div>
             </li>
           </ul>
         </div>
