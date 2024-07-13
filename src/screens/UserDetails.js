@@ -215,6 +215,18 @@ export default function UserDetails() {
           left: "50%",
           transform: "translate(-50%, -50%)",
         }}
+        okButtonProps={{
+          style: {
+            backgroundColor: "green",
+            color: "white",
+          },
+        }}
+        cancelButtonProps={{
+          style: {
+            backgroundColor: "red",
+            color: "white",
+          },
+        }}
       >
         <div>
           <h2>{selectedUser ? `User: ${selectedUser.name}` : ""}</h2>
