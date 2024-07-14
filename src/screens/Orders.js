@@ -57,20 +57,20 @@ export default function Orders() {
                     key={order._id}
                     className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
                   >
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">
                       {order.userId.name}
                     </td>
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">
                       {moment(order.createdAt).format(' h:mm a,MMMM Do YYYY')}
                     </td>
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">
                       {order.userId.phoneNumber ? order.userId.phoneNumber : order.userId.email},
                       {order.userId.secondPhoneNumber}
                     </td>
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">
                       {order.paymentMethod}
                     </td>
-                    <td className={`px-4 py-2 border-b text-center `}>
+                    <td className={`px-4 py-2 border-b text-center text-sm md:text-base `}>
                       <h1
                         className={`${
                           order.status == "Cancelled" &&
@@ -90,7 +90,7 @@ export default function Orders() {
                       </h1>
                     </td>
 
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">
                       <button
                         className="bg-blue-500 text-white px-4 py-2 rounded"
                         onClick={() => navigate(`/order-detail/${order._id}`)}

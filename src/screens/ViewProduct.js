@@ -67,24 +67,24 @@ export default function ViewProduct() {
             <table className="min-w-full bg-white">
               <thead>
                 <tr>
-                  <th className="px-4 py-2 border-b">Product </th>
-                  <th className="px-4 py-2 border-b">Price</th>
-                  <th className="px-4 py-2 border-b">Quantity</th>
-                  <th className="px-4 py-2 border-b">Category </th>
-                  <th className="px-4 py-2 border-b">Delete</th>
-                  <th className="px-4 py-2 border-b">Edit</th>
+                  <th className="px-4 py-2 border-b text-sm md:text-base">Product </th>
+                  <th className="px-4 py-2 border-b text-sm md:text-base">Price</th>
+                  <th className="px-4 py-2 border-b text-sm md:text-base">Quantity</th>
+                  <th className="px-4 py-2 border-b text-sm md:text-base">Category </th>
+                  <th className="px-4 py-2 border-b text-sm md:text-base">Delete</th>
+                  <th className="px-4 py-2 border-b text-sm md:text-base">Edit</th>
                 </tr>
               </thead>
               <tbody>
                 {products.map((row, index) => (
                   <tr key={index} className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-                    <td className="px-4 py-2 border-b">{row.productName}</td>
-                    <td className="px-4 py-2 border-b">{row.price}</td>
-                    <td className="px-4 py-2 border-b text-center">{row.quantity}</td>
-                    <td className="px-4 py-2 border-b text-center">{`${row.category}`}</td>
+                    <td className="px-4 py-2 border-b text-sm md:text-base">{row.productName}</td>
+                    <td className="px-4 py-2 border-b text-sm md:text-base">{row.price}</td>
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">{row.quantity}</td>
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">{`${row.category}`}</td>
 
                 
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">
                       <button
                         type="button"
                         className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
@@ -93,7 +93,7 @@ export default function ViewProduct() {
                         Delete
                       </button>
                     </td>
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-center text-sm md:text-base">
                       <button
                         type="button"
                         className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900"
