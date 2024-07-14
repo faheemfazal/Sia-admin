@@ -45,8 +45,8 @@ export default function OrderDetails() {
 
     if (result.isConfirmed) {
       try {
-        console.log('Order cancelled');
-        const res = await cancelOrder(order._id);
+        console.log('Order cancelled',order.userId?._id,order);
+        const res = await cancelOrder(order._id,order.userId?._id);
         if (res.status === 200) {
           message.success('Order successfully cancelled');
           setOrder({ ...order, status: 'Cancelled' });
