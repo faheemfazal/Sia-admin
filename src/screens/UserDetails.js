@@ -140,7 +140,7 @@ export default function UserDetails() {
       <Navbar />
       <div className="container mx-auto p-4">
         <div className="mb-4">
-          <h1 className="text-2xl font-semibold mt-2">User Details</h1>
+          <h1 className="md:text-2xl text-xl font-semibold mt-2">User Details</h1>
         </div>
         <div className="bg-white shadow rounded-lg overflow-hidden border-2 border-gray-300">
           <div className="border-b border-gray-400 px-4 py-2 flex items-center bg-gray-200">
@@ -151,34 +151,34 @@ export default function UserDetails() {
             <table className="min-w-full bg-white">
               <thead>
                 <tr>
-                  <th className="px-4 py-2 border-b text-center">Name</th>
-                  <th className="px-4 py-2 border-b text-center">
+                  <th className="px-4 py-2 border-b text">Name</th>
+                  <th className="px-4 py-2 border-b text">
                     Number or Email
                   </th>
-                  <th className="px-4 py-2 border-b text-center"></th>
+                  <th className="px-4 py-2 border-b text-"></th>
                 </tr>
               </thead>
               <tbody>
                 {user.map((row, index) => (
                   <tr
                     key={index}
-                    className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
+                    className={ `text-sm md:text-base ${index % 2 === 0 ? "bg-gray-100" : "bg-white"}`}
                   >
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-sm md:text-base">
                       {row.name}
                     </td>
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-sm md:text-base">
                       {row.phoneNumber ? row.phoneNumber : row.email}
                     </td>
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-">
                       <button
-                        className="bg-orange-500 text-white px-4 py-2 rounded text-center whitespace-nowrap"
+                        className="bg-orange-500 text-white px-4 py-2 rounded text- whitespace-nowrap"
                         onClick={() => handleCoinAndPay(row)}
                       >
                         Coin & Pay
                       </button>
                     </td>
-                    <td className="px-4 py-2 border-b text-center">
+                    <td className="px-4 py-2 border-b text-">
                       {row.block ? (
                         <button
                           className="bg-green-500 text-white px-4 py-2 rounded text-center"
