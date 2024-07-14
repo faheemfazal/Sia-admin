@@ -33,10 +33,10 @@ export const getOrders = async () => {
     }
   };
 
-  export const cancelOrder = async (orderId) => {
+  export const cancelOrder = async (orderId,userId) => {
     try {
       const response = await axiosAdmin({
-        url:`/orderCancel?orderId=${orderId}`,
+        url:`/orderCancel?orderId=${orderId}&userId=${userId}`,
         method: "get",
         // headers: { Authorization: `Bearer ${token}` },
       });
