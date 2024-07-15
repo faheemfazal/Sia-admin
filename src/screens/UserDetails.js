@@ -202,8 +202,11 @@ export default function UserDetails() {
           </div>
         </div>
       </div>
- {isModalOpen  &&     <Modal
+ {isModalOpen  &&    
+  <Modal
   visible={isModalOpen}
+  onCancel={handleCancel}
+  onOk={handleOk}
   centered
   width="90%"
   bodyStyle={{
