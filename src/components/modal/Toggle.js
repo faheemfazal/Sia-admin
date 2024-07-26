@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getOpenOrClose, postOpenOrClose } from '../../Api/Login';
 
 const ToggleSwitch = () => {
     const [isOn, setIsOn] = useState(false);
 
+    useEffect(()=>{
+         getOpenOrClose().then((res)=>{
+             if(res.status===200){
+                 setIsOn(res.data.openORclosed)
+                 console.log(res);
+             }else{
+                alert('something went wrong')
+     
+             }
+
+         })
+    },[])
+
     const handleToggle = async() => {
-        // const req = await 
-        setIsOn(!isOn);
+        const res = await postOpenOrClose(isOn)
+        if(res.status===200){
+            setIsOn(res.data.openORclosed)
+            console.log(res);
+        }else{
+            alert('something went wrong')
+
+        }
+      
     };
 
     return (

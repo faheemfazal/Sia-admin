@@ -25,3 +25,40 @@ export const login = async (email, password) => {
     
   }
 };
+
+export const getOpenOrClose = async () => {
+  try {
+    const res = await axiosAdmin({ 
+      url: '/openorclose',
+      method: "get",
+   
+      // headers: { Authorization : `Bearer ${token}` },
+    });
+
+  
+ 
+      return res;
+    
+  } catch {
+    
+  }
+};
+
+
+export const postOpenOrClose = async (isONorOFF) => {
+  try {
+    const res = await axiosAdmin({ 
+      url: '/postopenorclose',
+      method: "post",
+      data:{isONorOFF}
+      // headers: { Authorization : `Bearer ${token}` },
+    });
+
+  
+      return res;
+
+  } catch {
+    
+  }
+};
+
