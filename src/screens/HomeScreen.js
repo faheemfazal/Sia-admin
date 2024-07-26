@@ -97,8 +97,8 @@ export default function HomeScreen() {
         <div>
             <Navbar />
 
-            <div className="flex">
-            <h1 className="text-center text-lg font-bold mt-10">Toggle Switch Example</h1>
+            <div className="flex p-2">
+            
             <ToggleSwitch />
         </div>
 
