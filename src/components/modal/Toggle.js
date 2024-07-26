@@ -9,7 +9,7 @@ const ToggleSwitch = () => {
     };
 
     return (
-        <div className="flex  ">
+        <div className="flex gap-5 ">
           <h1 className={`font-bold text-2xl items-center ${isOn ? 'text-green-500' : 'text-red-500'}`}>{isOn?'OPEN':'CLOSED'}</h1>
           <div 
                 className={`relative w-28 h-12 flex items-center rounded-full p-1 cursor-pointer ${isOn ? 'bg-green-500' : 'bg-red-500'}`}
