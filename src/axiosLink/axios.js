@@ -22,6 +22,8 @@ import axios from "axios";
 const axiosAdmin = axios.create({
   // baseURL: "https://sia-backend-eight.vercel.app/admin/",
   baseURL: "https://sia-backend-azjk.onrender.com/admin",
+    // baseURL: "http://localhost:5000",
+
 
   
   headers: {

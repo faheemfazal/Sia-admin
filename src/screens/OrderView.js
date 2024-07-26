@@ -124,14 +124,14 @@ export default function OrderDetails() {
             )}
           </div>
           <div className="p-4 border rounded-lg shadow-md">
-            <h2 className="text-xl font-bold">Your Rewards</h2>
+            {/* <h2 className="text-xl font-bold">Your Rewards</h2>
             <div className="flex items-center space-x-4">
               <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/lockinEarlyAccess_e0bd6e.png" alt="Coin" className="w-12 h-12" />
               <div>
                 <p>Early Access to this Sale</p>
                 <p>For Sia Plus Members</p>
               </div>
-            </div>
+            </div> */}
             <div className="mt-4 flex space-x-4">
               {order.status !== 'Cancelled' && order.status !== 'Completed' ? (
                 <button
