@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'eact';
+import React, { useEffect, useState } from 'react';
 import { getOpenOrClose, postOpenOrClose } from '../../Api/Login';
 import { TailSpin } from "react-loader-spinner";
 
