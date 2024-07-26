@@ -4,6 +4,7 @@ import { FaUsers } from "react-icons/fa";
 import { FaChartBar } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import { getDashData } from "../Api/DashBoad";
+import ToggleSwitch from "../components/modal/Toggle";
 
 export default function HomeScreen() {
     const [userCount, setUserCount] = useState('');
@@ -95,6 +96,12 @@ export default function HomeScreen() {
     return (
         <div>
             <Navbar />
+
+            <div className="flex">
+            <h1 className="text-center text-2xl font-bold mt-10">Toggle Switch Example</h1>
+            <ToggleSwitch />
+        </div>
+
 
             <div className="flex justify-center flex-col lg:flex-row lg:gap-5 mt-7 lg:mx-10 mx-2">
                 <div className="lg:w-56 h-32 bg-white shadow-xl text-xl font-bold pt-3 pl-3 text-center mb-5 lg:mb-0">
