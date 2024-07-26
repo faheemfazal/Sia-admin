@@ -1,47 +1,54 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'eact';
 import { getOpenOrClose, postOpenOrClose } from '../../Api/Login';
+import { TailSpin } from "react-loader-spinner";
 
 const ToggleSwitch = () => {
     const [isOn, setIsOn] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
-         getOpenOrClose().then((res)=>{
-             if(res.status===200){
-                 setIsOn(res.data.openORclosed)
-                 console.log(res);
-             }else{
+        getOpenOrClose().then((res)=>{
+            if(res.status===200){
+                setIsOn(res.data.openORclosed)
+                console.log(res);
+            }else{
                 alert('something went wrong')
-     
-             }
-
-         })
+            }
+        })
     },[])
 
     const handleToggle = async() => {
+        setLoading(true);
         const res = await postOpenOrClose(isOn)
         if(res.status===200){
             setIsOn(res.data.openORclosed)
             console.log(res);
         }else{
             alert('something went wrong')
-
         }
-      
+        setLoading(false);
     };
 
     return (
+        <>
         <div className="flex gap-5 ">
-          <h1 className={`font-bold text-2xl items-center ${isOn ? 'text-green-500' : 'text-red-500'}`}>{isOn?'OPEN':'CLOSED'}</h1>
+          <h1 className={`font-bold text-2xl items-center ${isOn? 'text-green-500' : 'text-red-500'}`}>{isOn?'OPEN':'CLOSED'}</h1>
           <div 
-                className={`relative w-28 h-12 flex items-center rounded-full p-1 cursor-pointer ${isOn ? 'bg-green-500' : 'bg-red-500'}`}
+                className={`relative w-28 h-12 flex items-center rounded-full p-1 cursor-pointer ${isOn? 'bg-green-500' : 'bg-red-500'}`}
                 onClick={handleToggle}
             >
-                <div 
-                    className={`bg-white w-10 h-10 rounded-full shadow-md transform ${isOn ? 'translate-x-16' : 'translate-x-0'} transition-transform duration-300`}
-                ></div>
+                {loading? (
+                    <TailSpin color="white" height={20} width={20} />
+                ) : (
+                    <div 
+                        className={`bg-white w-10 h-10 rounded-full shadow-md transform ${isOn? 'translate-x-16' : 'translate-x-0'} transition-transform duration-300`}
+                    ></div>
+                )}
             </div>
             
         </div>
+        
+        </>
     );
 };
 
