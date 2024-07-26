@@ -8,7 +8,7 @@ const ToggleSwitch = () => {
     };
 
     return (
-        <div className="flex items-center justify-center h-screen">
+        <div className="flex  ">
             <div 
                 className={`relative w-16 h-8 flex items-center rounded-full p-1 cursor-pointer ${isOn ? 'bg-green-500' : 'bg-gray-300'}`}
                 onClick={handleToggle}
