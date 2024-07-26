@@ -7,7 +7,7 @@ const ToggleSwitch = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
-        getOpenOrClose().then((res)=>{
+     getOpenOrClose().then((res)=>{
             if(res.status===200){
                 setIsOn(res.data.openORclosed)
                 console.log(res);
