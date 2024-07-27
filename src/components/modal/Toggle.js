@@ -22,7 +22,7 @@ const ToggleSwitch = () => {
         const res = await postOpenOrClose(isOn)
         if(res.status===200){
             setIsOn(res.data.openORclosed)
-            console.log(res);
+            console.log(res,'p;p;p;');
         }else{
             alert('something went wrong')
         }
@@ -38,7 +38,7 @@ const ToggleSwitch = () => {
                 onClick={handleToggle}
             >
                 {loading? (
-                    <TailSpin color="white" height={20} width={20} />
+                    <TailSpin color="white" height={25} width={25} className="w-10 h-10 text-white"/>
                 ) : (
                     <div 
                         className={`bg-white w-10 h-10 rounded-full shadow-md transform ${isOn? 'translate-x-16' : 'translate-x-0'} transition-transform duration-300`}
