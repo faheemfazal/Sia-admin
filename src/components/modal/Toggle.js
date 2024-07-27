@@ -4,12 +4,13 @@ import { TailSpin } from "react-loader-spinner";
 
 const ToggleSwitch = () => {
     const [isOn, setIsOn] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
      getOpenOrClose().then((res)=>{
             if(res.status===200){
                 setIsOn(res.data.openORclosed)
+                setLoading(false)
                 console.log(res);
             }else{
                 alert('something went wrong')
