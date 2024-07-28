@@ -97,7 +97,7 @@ export default function HomeScreen() {
         <div>
             <Navbar />
 
-            <div className="flex p-2 z-0">
+            <div className="flex p-2 ">
             
             <ToggleSwitch />
         </div>
