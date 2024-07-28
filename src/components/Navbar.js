@@ -70,7 +70,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 z-50">
       <div className="bg-gray-800 text-white flex justify-between px-4 items-center">
         <h1 className="text-[#81c408] text-4xl">Sia</h1>
 
