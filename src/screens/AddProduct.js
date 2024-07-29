@@ -34,6 +34,7 @@ export default function AddProduct() {
   const [subCategories, setSubCategories] = useState([]);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
 
@@ -184,6 +185,8 @@ export default function AddProduct() {
       if (!validateForm()) {
         return;
       }
+      setIsSubmitting(true); // Disable the button
+
       console.log('Form submitted',formData,productImage);
       addNewProduct(formData, productImage).then((res) => {
         console.log(res, 'Product added');
@@ -197,6 +200,8 @@ export default function AddProduct() {
       });
     } catch (e) {
       console.log(e);
+    } finally {
+      setIsSubmitting(false); // Re-enable the button
     }
   };
 
@@ -643,12 +648,13 @@ export default function AddProduct() {
                   </div>
 
                   <div className="mt-4">
-                    <button
-                      type="submit"
-                      className="bg-blue-500 text-white px-4 py-2 rounded"
-                    >
-                      Add Product
-                    </button>
+                  <button
+  type="submit"
+  className={`px-4 py-2 rounded ${isSubmitting ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-500 text-white'}`}
+  disabled={isSubmitting} // Disable the button when submitting
+>
+  Add Product
+</button>
                   </div>
                 </form>
               </div>
