@@ -104,7 +104,7 @@ export default function AddCategory() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block font-medium">category:</label>
+                    <label className="block font-medium">Sub category:</label>
                     <input
                       type="text"
                       name="subCategory"
