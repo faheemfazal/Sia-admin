@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../Api/Login";
+import { message } from 'antd';
+
 
 
 export default function Login({setAdminToken}) {
@@ -35,9 +37,14 @@ export default function Login({setAdminToken}) {
           if(response?.status==200){
             setAdminToken(localStorage.getItem('adminToken'))
             console.log(';;;;;;;;;;;;;;;;;;;;');
+            message.success('Success ')
             navigate('/home');
 
+          }else if(response?.status==202){
+            message.error('Check your email and password ')
+                
           }else{
+            message.error('Access denied')
 
           }
           // Handle successful login

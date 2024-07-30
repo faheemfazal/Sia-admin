@@ -4,6 +4,7 @@ import img from '../components/assets/img/empty.jpg'
 
 
 export default function ViewBanner(){
+    
     return(
         <>
          <Navbar />
