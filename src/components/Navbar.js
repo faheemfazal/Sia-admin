@@ -205,12 +205,12 @@ export default function Navbar() {
         >
           <ul>
             <li className="hover:bg-gray-600 p-2 rounded">
-              <div className="w-full" onClick={() => navigate("/viewCategory")}>
+              <div className="w-full" onClick={() => navigate("/viewBanner")}>
                 View Banner
               </div>
             </li>
             <li className="hover:bg-gray-600 p-2 rounded">
-              <div className="w-full" onClick={() => navigate("/addCategory")}>
+              <div className="w-full" onClick={() => navigate("/addBanner")}>
                 Add Banner
               </div>
             </li>

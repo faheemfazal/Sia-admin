@@ -13,6 +13,7 @@ import ViewCategory from './screens/ViewCategory';
 import Orders from './screens/Orders';
 import OrderDetails from './screens/OrderView';
 import SalesReport from './screens/SalesReport';
+import Banner from './screens/AddBanner';
 
 function App() {
   const  [adminToken,setAdminToken]=useState(localStorage.getItem('adminToken'))
@@ -33,6 +34,8 @@ console.log('dfdfd',adminToken);
               <Route path="/viewLocation" element={<ViewLocation />} />
               <Route path="/addLocation" element={<AddLocation />} />
               <Route path="/addCategory" element={<AddCategory />} />
+              <Route path="/addBanner" element={<Banner />} />
+
               <Route path="/viewCategory" element={<ViewCategory />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/sales-report" element={<SalesReport />} />
