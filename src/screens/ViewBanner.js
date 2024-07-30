@@ -1,4 +1,5 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar"
+import img from '../components/assets/img/empty.jpg'
 
 
 
@@ -40,7 +41,7 @@ export default function ViewBanner(){
             // }
             >
               <td className="px-4 py-2 border-b text-sm md:text-base">{1}</td>
-          
+              <img src={img} alt="Product" className="mt-2 w-32 h-32 object-cover" />
 
           
               <td className="px-4 py-2 border-b text-center text-sm md:text-base">
