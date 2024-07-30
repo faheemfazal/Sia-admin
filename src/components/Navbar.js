@@ -185,12 +185,12 @@ export default function Navbar() {
           className="absolute z-10 bg-white text-gray-800 shadow-lg rounded-md"
         >
           <ul>
-            <li className="hover:bg-gray-600 p-2 rounded">
+            <li className="hover:bg-gray-600 p-2 rounded cursor-pointer">
               <div className="w-full" onClick={() => navigate("/viewCategory")}>
                 View Category
               </div>
             </li>
-            <li className="hover:bg-gray-600 p-2 rounded">
+            <li className="hover:bg-gray-600 p-2 rounded cursor-pointer">
               <div className="w-full" onClick={() => navigate("/addCategory")}>
                 Add Category
               </div>
@@ -205,12 +205,12 @@ export default function Navbar() {
         >
           <ul>
             <li className="hover:bg-gray-600 p-2 rounded">
-              <div className="w-full" onClick={() => navigate("/viewBanner")}>
+              <div className="w-full cursor-pointer" onClick={() => navigate("/viewBanner")}>
                 View Banner
               </div>
             </li>
             <li className="hover:bg-gray-600 p-2 rounded">
-              <div className="w-full" onClick={() => navigate("/addBanner")}>
+              <div className="w-full cursor-pointer" onClick={() => navigate("/addBanner")}>
                 Add Banner
               </div>
             </li>
