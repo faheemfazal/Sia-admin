@@ -1,9 +1,51 @@
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar"
 import img from '../components/assets/img/empty.jpg'
+import { deleteBanner, getBanner } from "../Api/Banner";
+import Swal from 'sweetalert2';
 
 
 
 export default function ViewBanner(){
+    const [banners,setBanners] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        // getBanner().then((res) => {
+        //   console.log("theeeeeee", res);
+        //   if(res.status==200){
+        //       setBanners(res?.data?.banners);
+
+        //   }else{
+        //     setBanners([])
+        //   }
+        // });
+      }, []);
+
+      const handleDelete = async(data) => {
+        const result = await Swal.fire({
+          title: 'Are you sure?',
+          text: 'This will delete the product. Do you want to proceed?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, keep it',
+          customClass: {
+            container: "fixed inset-0 flex justify-center items-center",
+            popup: "p-4 rounded-lg bg-white",
+            confirmButton: "bg-red-500 text-white px-4 py-2 rounded m-2",
+            cancelButton: "bg-gray-500 text-white px-4 py-2 rounded ml-2 m-2",
+          },
+        });
+    
+        if (result.isConfirmed) {
+    
+            deleteBanner(data).then((res) => {
+          alert(res.data.message);
+          setLoading(!loading)
+        });
+      }
+      };
     
     return(
         <>
@@ -31,15 +73,15 @@ export default function ViewBanner(){
           </tr>
         </thead>
         <tbody>
-          {/* {products.map((row, index) => ( */}
+          {banners.map((row, index) => (
             <tr 
-            // key={index} 
+            key={index} 
             className=
-            // {index % 2 === 0 ?
+            {index % 2 === 0 ?
              "bg-gray-100" 
-            //  : 
-            //  "bg-white"
-            // }
+             : 
+             "bg-white"
+            }
             >
               <td className="px-4 py-2 border-b text-sm md:text-base">{1}</td>
               <img src={img} alt="Product" className="mt-2 w-32 h-32 object-cover" />
@@ -49,14 +91,14 @@ export default function ViewBanner(){
                 <button
                   type="button"
                   className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                //   onClick={() => deleteProduct(row._id)}
+                  onClick={() => handleDelete(row._id)}
                 >
                   Delete
                 </button>
               </td>
        
             </tr>
-          {/* ))} */}
+           ))} 
         </tbody>
       </table>
     </div>
