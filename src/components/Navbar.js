@@ -138,7 +138,7 @@ export default function Navbar() {
           <li ref={bannerRef} className="p-2 rounded hover:bg-gray-700 relative">
             <div
               className="w-full flex items-center space-x-2"
-              onClick={() => toggleSubmenu("category", bannerRef)}
+              onClick={() => toggleSubmenu("banner", bannerRef)}
             >
               <i className="icon icon-inbox"></i>
               <span>Banner</span>
