@@ -96,7 +96,7 @@ export default function Navbar() {
       <div ref={scrollDivRef} className="bg-gray-800 text-white h-full overflow-auto">
         <ul className="p-2 flex flex-row gap-2">
           <li
-            className="active p-2 rounded hover:bg-gray-700"
+            className="active p-2 rounded hover:bg-gray-700 cursor-pointer"
             onClick={() => navigate("/home")}
           >
             <div className="w-full flex items-center space-x-2">
@@ -105,7 +105,7 @@ export default function Navbar() {
             </div>
           </li>
           <li
-            className="active p-2 rounded hover:bg-gray-700"
+            className="active p-2 rounded hover:bg-gray-700 cursor-pointer"
             onClick={() => navigate("/users")}
           >
             <div className="w-full flex items-center space-x-2">
@@ -113,19 +113,19 @@ export default function Navbar() {
               <span>Users</span>
             </div>
           </li>
-          <li ref={formsRef} className="submenu p-2 rounded hover:bg-gray-700 relative">
+          <li ref={formsRef} className="submenu p-2 rounded hover:bg-gray-700 relative cursor-pointer">
             <div
               onClick={() => toggleSubmenu("forms", formsRef)}
               className="w-full flex items-center justify-between space-x-2"
             >
-              <span className="flex items-center space-x-2 whitespace-nowrap">
+              <span className="flex items-center space-x-2 whitespace-nowrap ">
                 <i className="icon icon-th-list"></i>
                 <span> Products</span>
               </span>
               <FaAngleDown className="p-1 text-2xl" />
             </div>
           </li>
-          <li ref={categoryRef} className="p-2 rounded hover:bg-gray-700 relative">
+          <li ref={categoryRef} className="p-2 rounded hover:bg-gray-700 relative cursor-pointer">
             <div
               className="w-full flex items-center space-x-2"
               onClick={() => toggleSubmenu("category", categoryRef)}
@@ -135,7 +135,7 @@ export default function Navbar() {
               <FaAngleDown className="p-1 text-2xl" />
             </div>
           </li>
-          <li ref={bannerRef} className="p-2 rounded hover:bg-gray-700 relative">
+          <li ref={bannerRef} className="p-2 rounded hover:bg-gray-700 relative cursor-pointer">
             <div
               className="w-full flex items-center space-x-2"
               onClick={() => toggleSubmenu("banner", bannerRef)}
@@ -145,18 +145,18 @@ export default function Navbar() {
               <FaAngleDown className="p-1 text-2xl" />
             </div>
           </li>
-          <li className="p-2 rounded hover:bg-gray-700">
+          <li className="p-2 rounded hover:bg-gray-700    cursor-pointer">
             <div className="w-full flex items-center space-x-2" onClick={() => navigate("/orders")}>
               <i className="icon icon-th"></i>
               <span>Orders</span>
             </div>
           </li>
-          <li className="p-2 rounded hover:bg-gray-700">
+          {/* <li className="p-2 rounded hover:bg-gray-700">
             <div className="w-full flex items-center space-x-2 whitespace-nowrap" onClick={() => navigate("/sales-report")}>
               <i className="icon icon-fullscreen"></i>
               <span>Sales Report</span>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
 
@@ -166,12 +166,12 @@ export default function Navbar() {
           className="absolute z-10 bg-white text-gray-800 shadow-lg rounded-md"
         >
           <ul>
-            <li className="hover:bg-gray-600 p-2 rounded">
+            <li className="hover:bg-gray-600 p-2 rounded cursor-pointer">
               <div className="w-full" onClick={() => navigate("/viewProduct")}>
                 View Product
               </div>
             </li>
-            <li className="hover:bg-gray-600 p-2 rounded">
+            <li className="hover:bg-gray-600 p-2 rounded cursor-pointer">
               <div className="w-full" onClick={() => navigate("/addProduct")}>
                 Add Product
               </div>
