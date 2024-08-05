@@ -10,6 +10,8 @@ import { message } from 'antd';
 export default function ViewBanner(){
     const [banners,setBanners] = useState([])
     const [loading, setLoading] = useState(false)
+    const [load, setLoad] = useState(false)
+
 
     useEffect(() => {
       getBanner().then((res) => {
@@ -20,7 +22,7 @@ export default function ViewBanner(){
           setBanners([]);
         }
       });
-    }, []);
+    }, [load]);
 
       const handleDelete = async(data) => {
         const result = await Swal.fire({
@@ -44,6 +46,7 @@ export default function ViewBanner(){
           if(res.status==200){
             setLoading(!loading)
             message.success('Banner deleted successfully')
+            setLoad(!load)
           }else{
           message.error('An error occurred while deleting the banner')
           }
