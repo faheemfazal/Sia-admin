@@ -204,13 +204,13 @@ export default function Navbar() {
           className="absolute z-10 bg-white text-gray-800 shadow-lg rounded-md"
         >
           <ul>
-            <li className="hover:bg-gray-600 p-2 rounded">
-              <div className="w-full cursor-pointer" onClick={() => navigate("/viewBanner")}>
+            <li className="hover:bg-gray-600 p-2 rounded cursor-pointer"onClick={() => navigate("/viewBanner")}>
+              <div className="w-full cursor-pointer" >
                 View Banner
               </div>
             </li>
-            <li className="hover:bg-gray-600 p-2 rounded">
-              <div className="w-full cursor-pointer" onClick={() => navigate("/addBanner")}>
+            <li className="hover:bg-gray-600 p-2 rounded cursor-pointer"onClick={() => navigate("/addBanner")}>
+              <div className="w-full " >
                 Add Banner
               </div>
             </li>
