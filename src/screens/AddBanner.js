@@ -89,7 +89,7 @@ return(
 
 <div id="content bg-[#f5f5f5]" className="p-4">
         <div id="content-header" className="mb-4">
-          <h1 className="text-2xl font-bold">Add New Product</h1>
+          <h1 className="text-2xl font-bold">Add New Banner</h1>
         </div>
         <div className="md:mx-10 mx-3 ">
           <div className="flex flex-wrap -mx-2">
@@ -99,13 +99,13 @@ return(
                   <span className="icon mr-2">
                     <i className="icon-align-justify"></i>
                   </span>
-                  <h5 className="inline font-bold">Product-info</h5>
+                  <h5 className="inline font-bold">Banner-info</h5>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-4">
                  
 
 <div className="space-y-2">
-                    <label className="block font-medium">Product Image:</label>
+                    <label className="block font-medium">Banner Image:</label>
                     <input type="file" onChange={handleFile} className="w-full" />
                   {loading ? (
           <div className="mt-2 w-32 h-32 flex justify-center items-center">
