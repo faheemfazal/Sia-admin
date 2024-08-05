@@ -67,13 +67,13 @@ export default function Banner() {
 
       console.log('Form submitted',bannerImage);
       addNewBanner(bannerImage).then((res) => {
-        console.log(res, 'Product added');
+        console.log(res, 'banner');
         if (res.status === 200) {
-          message.success('Product successfully added').then(() => {
-            navigate('/viewProduct');
+          message.success('Banner created successfully').then(() => {
+            navigate('/viewBanner');
           })
         } else {
-          message.error('Product name already existed');
+          message.error('An error occurred while creating the banner');
         }
       });
     } catch (e) {

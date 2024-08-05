@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar"
 import img from '../components/assets/img/empty.jpg'
 import { deleteBanner, getBanner } from "../Api/Banner";
 import Swal from 'sweetalert2';
+import { message } from 'antd';
 
 
 
@@ -11,16 +12,15 @@ export default function ViewBanner(){
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        // getBanner().then((res) => {
-        //   console.log("theeeeeee", res);
-        //   if(res.status==200){
-        //       setBanners(res?.data?.banners);
-
-        //   }else{
-        //     setBanners([])
-        //   }
-        // });
-      }, []);
+      getBanner().then((res) => {
+        console.log("theeeeeee", res);
+        if (res.status === 200) {
+          setBanners(res.data.banner);
+        } else {
+          setBanners([]);
+        }
+      });
+    }, []);
 
       const handleDelete = async(data) => {
         const result = await Swal.fire({
@@ -41,8 +41,12 @@ export default function ViewBanner(){
         if (result.isConfirmed) {
     
             deleteBanner(data).then((res) => {
-          alert(res.data.message);
-          setLoading(!loading)
+          if(res.status==200){
+            setLoading(!loading)
+            message.success('Banner deleted successfully')
+          }else{
+          message.error('An error occurred while deleting the banner')
+          }
         });
       }
       };
@@ -83,8 +87,8 @@ export default function ViewBanner(){
              "bg-white"
             }
             >
-              <td className="px-4 py-2 border-b text-sm md:text-base">{1}</td>
-              <img src={img} alt="Product" className="mt-2 w-32 h-32 object-cover" />
+              <td className="px-4 py-2 border-b text-sm md:text-base">{index+1}</td>
+              <img src={row.bannerImage} alt="Product" className="mt-2 w-32 h-32 object-cover" />
 
           
               <td className="px-4 py-2 border-b text-center text-sm md:text-base">
